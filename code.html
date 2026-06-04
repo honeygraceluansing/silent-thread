@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Silent Thread | Discovery</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed": "#321300",
+                    "surface-container-high": "#eae8e3",
+                    "on-primary-fixed-variant": "#394b3d",
+                    "on-error-container": "#93000a",
+                    "inverse-surface": "#30312e",
+                    "surface-container-low": "#f5f3ee",
+                    "on-primary": "#ffffff",
+                    "primary-container": "#4a5d4e",
+                    "surface-tint": "#506354",
+                    "on-primary-container": "#c0d5c2",
+                    "tertiary-fixed": "#ffe088",
+                    "surface": "#fbf9f4",
+                    "surface-bright": "#fbf9f4",
+                    "surface-container": "#f0eee9",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed-dim": "#e9c349",
+                    "surface-dim": "#dbdad5",
+                    "outline-variant": "#c3c8c1",
+                    "tertiary-container": "#cca830",
+                    "primary": "#334537",
+                    "inverse-primary": "#b7ccb9",
+                    "on-error": "#ffffff",
+                    "on-secondary-fixed-variant": "#683c1e",
+                    "on-background": "#1b1c19",
+                    "on-tertiary-container": "#4f3e00",
+                    "inverse-on-surface": "#f2f1ec",
+                    "on-secondary-container": "#78492a",
+                    "secondary-container": "#fdbb94",
+                    "on-primary-fixed": "#0e1f13",
+                    "background": "#fbf9f4",
+                    "secondary-fixed-dim": "#fab891",
+                    "secondary": "#845333",
+                    "surface-container-highest": "#e4e2dd",
+                    "primary-fixed": "#d3e8d5",
+                    "secondary-fixed": "#ffdbc8",
+                    "on-tertiary": "#ffffff",
+                    "tertiary": "#735c00",
+                    "on-surface": "#1b1c19",
+                    "on-tertiary-fixed": "#241a00",
+                    "on-tertiary-fixed-variant": "#574500",
+                    "on-secondary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "outline": "#737872",
+                    "error-container": "#ffdad6",
+                    "surface-variant": "#e4e2dd",
+                    "on-surface-variant": "#434843",
+                    "primary-fixed-dim": "#b7ccb9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "unit": "8px",
+                    "section-gap-mobile": "80px",
+                    "margin-mobile": "20px",
+                    "container-max": "1140px",
+                    "section-gap-desktop": "160px"
+            },
+            "fontFamily": {
+                    "label-caps": ["Inter"],
+                    "headline-md": ["Playfair Display"],
+                    "body-lg": ["Inter"],
+                    "headline-sm": ["Playfair Display"],
+                    "display-lg": ["Playfair Display"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.8", "letterSpacing": "0.01em", "fontWeight": "400"}],
+                    "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .narrative-diamond::after {
+            content: '◆';
+            display: block;
+            text-align: center;
+            color: #cca830;
+            font-size: 0.75rem;
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md border-b border-outline-variant/30 transition-all duration-300 ease-in-out">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-gutter py-4">
+<span class="font-headline-sm text-headline-sm tracking-tight text-primary dark:text-inverse-primary">The Silent Thread</span>
+<div class="flex items-center gap-8">
+<a class="font-body-md text-body-md text-primary font-semibold border-b-2 border-primary py-1 transition-all duration-300" href="#discovery">Begin Discovery</a>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative min-h-screen flex items-center pt-24 overflow-hidden">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter grid md:grid-cols-2 gap-12 items-center">
+<div class="reveal">
+<span class="font-label-caps text-label-caps text-tertiary-container mb-4 block">A PERSONAL REFLECTION</span>
+<h1 class="font-display-lg text-display-lg mb-8 leading-tight">If You Believe There’s <span class="italic">More</span> to Life… This Might Be Your Sign.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-lg">
+                    I spent years moving from city to city, working harder than I thought possible, yet always feeling like I was chasing a horizon that never arrived. There was always a hollow space where peace should be.
+                </p>
+<div class="flex items-center gap-4">
+<span class="w-12 h-px bg-primary"></span>
+<p class="font-body-md text-body-md italic text-primary">No, it's not what you think.</p>
+</div>
+</div>
+<div class="relative reveal h-[600px]">
+<img class="w-full h-full object-cover rounded-lg shadow-xl grayscale-[20%] hover:grayscale-0 transition-all duration-1000" data-alt="A reflective and cinematic portrait of a young woman looking out of a skyscraper window at sunset, her hand resting softly on the glass. The scene is bathed in a warm, golden-hour glow that highlights the quiet contemplation on her face. The interior is minimalist with clean lines and soft shadows, embodying a modern light-mode aesthetic with neutral tones and deep forest green accents. The mood is one of profound mystery and hopeful yearning." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxt_r6GT2-UKMSUoX_prFrO2QUf4K_vvWIGAIlD5dhQ4sdgc959Xv7rWKB0qZus0sEekvxdgrph7shmGDFOoXZo-ukeXvLs3RJg-pxTyyZeSYHFm3-H4RHBij024tQqphjjxslo0Az0SWHWAWp-Bv8pL2jKcXnBIw1OkB4kUD7zHMJo3bzqQVcGxha_KOfdyx0RlGlh9791rL38TIw6sbRwx6pPduxzRrtx0r3v7lCEyM2hKiFgcigl66lIMMH8cBtkvdZQmcehOk"/>
+<div class="absolute inset-0 border-[24px] border-surface translate-x-6 translate-y-6 -z-10"></div>
+</div>
+</div>
+</header>
+<!-- Emotional Transformation -->
+<section class="py-section-gap-desktop bg-surface-container-low overflow-hidden">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+<div class="text-center max-w-3xl mx-auto mb-20 reveal">
+<h2 class="font-headline-md text-headline-md mb-6">The Pivot Point</h2>
+<div class="narrative-diamond"></div>
+</div>
+<div class="grid md:grid-cols-2 gap-16 items-center">
+<div class="order-2 md:order-1 reveal">
+<img class="w-full aspect-[4/5] object-cover rounded shadow-2xl" data-alt="A beautiful, high-resolution lifestyle photograph of a multigenerational family sitting together on a park bench during a sun-drenched afternoon. The lighting is soft and ethereal, filtering through the lush green trees behind them. The family members are laughing and sharing a warm moment, dressed in light-colored linen and cotton clothing that matches the cream and white palette of the design system. The atmosphere is peaceful, nostalgic, and deeply human." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgflH3jy6pz2djzB6srSLLCbjiE3FQv3mQlH25bbm2S6dylu3Qvc1ehTjUkz9i7gfH8JTeL2Su_nU6wVTvuG3AZSJU7zezWRmsEGGFH7EKDgKXQYsWgvHQJqql6xdiWnQqWSZ0U1-6vJkgJMDmiX9_gL5cHzILbfNWvgCZizSGOpHbO2S7yUURshO3D_hV2iocLadOVyj_Jc9Wq4OY1sporRte5_8PoM8sIkuTXYYKHHFOfAuoGRIpuMsvZ8xTCd5GfzAN3WhlUkc"/>
+</div>
+<div class="order-1 md:order-2 reveal space-y-12">
+<div class="relative pl-8 border-l-2 border-outline-variant">
+<span class="font-label-caps text-label-caps opacity-50 mb-2 block">THEN</span>
+<p class="font-body-lg text-body-lg italic">"I was exhausted. Counting paychecks like they were oxygen, realizing I was trading my best years for someone else's dream. My family only saw the tired version of me."</p>
+</div>
+<div class="relative pl-8 border-l-2 border-primary">
+<span class="font-label-caps text-label-caps text-primary mb-2 block">NOW</span>
+<p class="font-body-lg text-body-lg font-semibold text-primary">"I decided to build something that was mine. Not a career, but a lifestyle. One where the morning coffee actually tastes like freedom, and my presence is no longer a luxury."</p>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        The transformation wasn't about more work—it was about a different <span class="font-semibold">thread</span>. One that connects time, effort, and family in a way I'd never been taught.
+                    </p>
+</div>
+</div>
+</div>
+</section>
+<!-- The Mystery -->
+<section class="py-section-gap-desktop">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+<div class="grid md:grid-cols-12 gap-8 items-center">
+<div class="md:col-span-7 reveal">
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-8">This isn't for everyone.</h2>
+<p class="font-body-lg text-body-lg mb-8 text-on-surface-variant">
+                        It requires no special background. No technical genius. Just the quiet realization that the path you're on might be leading you to a destination you don't actually want to reach. 
+                    </p>
+<p class="font-body-lg text-body-lg mb-8 font-semibold text-tertiary-container">
+                        We are looking for the curious, the restless, and the intentional.
+                    </p>
+</div>
+<div class="md:col-span-5 reveal">
+<div class="p-8 bg-white border border-outline-variant/30 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+<img class="w-full aspect-square object-cover mb-6 rounded" data-alt="A clean and minimalist home office setup on a wooden desk by a large window overlooking a misty, serene lake and forest. A laptop sits open next to a steaming ceramic mug of coffee. The lighting is diffused and natural, creating a calm and focused workspace atmosphere. The color palette is composed of soft woods, muted greens from the outdoors, and crisp whites, perfectly aligning with the editorial soul of the brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP4-DyyALzg_6oNt73SqsgwLMcUTqxlrRVzv15iPE_zsWQixcfZ5WLrWRIXtDXelXYZaqEZW1hnUr91-6JpsbLqjwOZQfpl7L_6t6nyZPRu6gYB-kQHLSQOAVgdewh8BxrblEXb9rMUG4AwFf7FIFXAijxR9jET2-x0daAp4c523LEUm5ofcl3MP0piBbc0ooUrmfDN5Ii_BQUreJMqyyJiyOzGuWACG32K9iERK5NdNH8KSpOfSac3_Gpt0SkCD_R-2fAQ8DAzvo"/>
+<p class="font-label-caps text-label-caps text-center opacity-60">THE NEW ARCHITECTURE OF TIME</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Lead Capture Form -->
+<section class="py-section-gap-desktop bg-primary text-on-primary" id="discovery">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter grid md:grid-cols-2 gap-20">
+<div class="reveal">
+<h2 class="font-headline-md text-headline-md mb-6 text-on-primary-container">See What Changed Everything...</h2>
+<p class="font-body-lg text-body-lg opacity-90 mb-12">
+                    Enter your details to receive the private briefing. This is the first step toward a thread that leads somewhere meaningful.
+                </p>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary-container">verified</span>
+<span class="font-body-md text-body-md">No pressure. No spam. Just a conversation.</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary-container">lock</span>
+<span class="font-body-md text-body-md">Your privacy is our primary respect.</span>
+</div>
+</div>
+</div>
+<div class="bg-surface p-10 rounded-lg reveal">
+<form class="space-y-6 text-on-surface">
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="font-label-caps text-label-caps block mb-2 opacity-70">FIRST NAME</label>
+<input class="w-full border-b border-outline-variant bg-transparent py-3 focus:border-tertiary-container focus:ring-0 transition-colors" placeholder="Elias" type="text"/>
+</div>
+<div>
+<label class="font-label-caps text-label-caps block mb-2 opacity-70">LAST NAME</label>
+<input class="w-full border-b border-outline-variant bg-transparent py-3 focus:border-tertiary-container focus:ring-0 transition-colors" placeholder="Vance" type="text"/>
+</div>
+</div>
+<div>
+<label class="font-label-caps text-label-caps block mb-2 opacity-70">EMAIL ADDRESS</label>
+<input class="w-full border-b border-outline-variant bg-transparent py-3 focus:border-tertiary-container focus:ring-0 transition-colors" placeholder="hello@thread.com" type="email"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="font-label-caps text-label-caps block mb-2 opacity-70">PHONE</label>
+<input class="w-full border-b border-outline-variant bg-transparent py-3 focus:border-tertiary-container focus:ring-0 transition-colors" placeholder="+1..." type="tel"/>
+</div>
+<div>
+<label class="font-label-caps text-label-caps block mb-2 opacity-70">CITY/COUNTRY</label>
+<input class="w-full border-b border-outline-variant bg-transparent py-3 focus:border-tertiary-container focus:ring-0 transition-colors" placeholder="London, UK" type="text"/>
+</div>
+</div>
+<div>
+<label class="font-label-caps text-label-caps block mb-2 opacity-70">INSTAGRAM (OPTIONAL)</label>
+<input class="w-full border-b border-outline-variant bg-transparent py-3 focus:border-tertiary-container focus:ring-0 transition-colors" placeholder="@username" type="text"/>
+</div>
+<div>
+<label class="font-label-caps text-label-caps block mb-2 opacity-70">A BRIEF NOTE (WHY NOW?)</label>
+<textarea class="w-full border border-outline-variant bg-transparent p-4 focus:border-tertiary-container focus:ring-0 transition-colors" placeholder="I'm ready for something different..." rows="3"></textarea>
+</div>
+<button class="w-full bg-primary text-on-primary py-5 rounded font-label-caps text-label-caps tracking-widest hover:bg-on-primary-fixed-variant transition-all duration-300" type="submit">SHOW ME HOW THIS WORKS</button>
+</form>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-section-gap-desktop bg-surface-container-highest/20">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+<div class="grid md:grid-cols-2 gap-16">
+<div class="reveal">
+<span class="material-symbols-outlined text-tertiary-container mb-4" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+<p class="font-headline-sm text-headline-sm italic mb-6">"I thought I understood the value of my time. This perspective shift changed the way I look at every hour of my day and every dollar in my bank."</p>
+<p class="font-label-caps text-label-caps opacity-60">— S. Miller, Freelance Architect</p>
+</div>
+<div class="reveal">
+<span class="material-symbols-outlined text-tertiary-container mb-4" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+<p class="font-headline-sm text-headline-sm italic mb-6">"The mystery was what pulled me in, but the simplicity is what kept me. It’s the most human approach to independence I’ve ever found."</p>
+<p class="font-label-caps text-label-caps opacity-60">— J. Chen, Former Analyst</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full py-section-gap-mobile md:py-24 bg-surface dark:bg-surface-dim border-t border-outline-variant/20">
+<div class="flex flex-col md:flex-row justify-between items-start max-w-container-max mx-auto px-margin-mobile md:px-gutter gap-8">
+<div class="max-w-md">
+<span class="font-headline-sm text-headline-sm text-primary mb-4 block">The Silent Thread</span>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                    Earnings Disclaimer: Any financial examples shared are not a guarantee of income. Success requires effort, skill, and consistency. We are sharing a methodology, not a miracle.
+                </p>
+<p class="font-body-md text-body-md text-on-surface-variant opacity-60">© 2024 The Silent Thread. All rights reserved.</p>
+</div>
+<div class="flex flex-col gap-4 text-right">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Terms of Service</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Cookie Policy</a>
+</div>
+</div>
+</footer>
+<script>
+        // Reveal Animations
+        const observerOptions = {
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Form Interactivity
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = form.querySelector('button');
+            const originalText = btn.innerText;
+            btn.innerText = "OPENING THE THREAD...";
+            btn.disabled = true;
+            setTimeout(() => {
+                alert("The thread has been cast. Check your inbox shortly.");
+                btn.innerText = originalText;
+                btn.disabled = false;
+                form.reset();
+            }, 1500);
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2', 'shadow-sm');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.add('py-4');
+                nav.classList.remove('py-2', 'shadow-sm');
+            }
+        });
+    </script>
+</body></html>
